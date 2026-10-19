@@ -1,0 +1,885 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sarah Wedding Design</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Wedding decorating and custom design in Denver, Colorado: handmade garlands, signs, table decor, paper goods and favors, made for you and set up on the day.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..700,0..100,0..1&family=Caprasimo&family=Jost:wght@400;500&family=Gloock&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: candlelit reception after dark. Warm black room, cream script, champagne-gold mirrorball sparkle, arch-topped frames and garland rust. One deliberate dark look in every theme. */
+:root {
+  --bg: #15100e;        /* the room with the lights down */
+  --card: #211a16;      /* walnut table */
+  --ink: #eee3d5;       /* cream lettering */
+  --muted: #b3a597;
+  --line: #3a2f2a;
+  --moss: #d2b06a;      /* champagne gold, the mirrorball sparkle */
+  --rust: #d98a5f;      /* garland roses */
+  --deep: #0b0808;      /* after midnight, where the prism light shows best */
+  --on-deep: #f1e7da;
+  --display: "Fraunces", "Cooper Black", "Georgia", serif;   /* soft, wonky 70s serif to sit with the script logo */
+  --headline: "Caprasimo", "Cooper Black", "Fraunces", Georgia, serif;  /* upright Cooper-style 70s headlines */
+  --body: "Jost", "Futura", "Avenir Next", "Helvetica Neue", sans-serif;
+  --wrap: 1180px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body {
+  background: var(--bg); color: var(--ink);
+  font: 400 17px/1.7 var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--moss); outline-offset: 3px; border-radius: 4px; }
+img { display: block; max-width: 100%; height: auto; }
+p { margin: 0; }
+h1, h2, h3, summary, .price, .vs, .email, .caption, .gallery figcaption b, .steps li::before {
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+}
+h1, h2, h3 { font-family: var(--display); font-weight: 500; line-height: 1.08; text-wrap: balance; margin: 0; letter-spacing: -.015em; }
+h1, h2 { font-family: var(--headline); font-weight: 400; line-height: 1.04; letter-spacing: 0; padding-right: .05em; }
+h1 em, h2 em { font-style: normal; }
+.sig h2 { padding-right: 0; }
+h1 em, h2 em { font-style: normal; color: var(--moss); }
+h2 { font-size: clamp(1.55rem, 2.8vw, 2.15rem); }
+h3 { font-size: 1.4rem; line-height: 1.2; }
+
+.wrap {
+  max-width: var(--wrap); margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+@media (min-width: 700px) { .wrap { padding-left: max(40px, env(safe-area-inset-left, 0px)); padding-right: max(40px, env(safe-area-inset-right, 0px)); } }
+
+.label { font: 500 12px/1.4 var(--body); letter-spacing: .2em; text-transform: uppercase; color: var(--rust); }
+.lede { color: var(--muted); max-width: 54ch; font-size: 1.1rem; }
+.muted { color: var(--muted); }
+
+.btn {
+  display: inline-flex; align-items: center; gap: .5em;
+  font: 500 15px/1 var(--body); letter-spacing: .02em; text-decoration: none;
+  padding: 16px 26px; border-radius: 999px; border: 1px solid transparent;
+  cursor: pointer; transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+.btn-primary { background: var(--moss); color: var(--bg); }
+.btn-primary:hover { background: var(--ink); }
+.btn-line { border-color: var(--ink); color: var(--ink); background: transparent; }
+.btn-line:hover { background: var(--ink); color: var(--bg); }
+
+/* Logo: the cream lettering used as a mask so it takes the ink color */
+.logo-mark {
+  display: block; aspect-ratio: 600/739; background: var(--ink);
+  -webkit-mask: url(img/logo.png) center / contain no-repeat; mask: url(img/logo.png) center / contain no-repeat;
+}
+
+/* Header */
+header.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 8px; }
+.brand { text-decoration: none; }
+.brand .logo-mark { height: 74px; }
+@media (max-width: 600px) { .brand .logo-mark { height: 58px; } }
+nav.links { display: flex; gap: 30px; font-size: 14px; letter-spacing: .06em; }
+nav.links a { text-decoration: none; color: var(--muted); }
+nav.links a:hover { color: var(--ink); }
+.top .btn { padding: 12px 20px; font-size: 14px; }
+@media (max-width: 900px) { nav.links { display: none; } }
+
+/* Photo grade: warm, slightly muted, soft vignette so every photo sits in the candlelit palette */
+.gallery .ph, .about .portrait { position: relative; }
+.gallery .ph img, .about .portrait img, .shed img, .sig-photo .pic {
+  filter: sepia(.2) saturate(.85) contrast(1.05) brightness(.92);
+  transition: filter .5s ease, transform .6s ease;
+}
+.gallery .ph::after, .about .portrait::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
+  background:
+    radial-gradient(ellipse at 50% 45%, transparent 55%, rgba(21, 16, 14, .38) 100%),
+    linear-gradient(180deg, rgba(210, 176, 106, .07), rgba(42, 26, 31, .14));
+  mix-blend-mode: multiply;
+}
+.gallery figure:hover .ph img { filter: none; }
+
+/* Hero: full-bleed garland photo with film grain, giant staggered headline, corner details */
+.hero { position: relative; overflow: hidden; isolation: isolate; display: grid; min-height: min(88svh, 880px); }
+.hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; z-index: -3;
+  filter: sepia(.25) saturate(.9) contrast(1.08) brightness(.8); }
+.hero-shade { position: absolute; inset: 0; z-index: -2;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(21,16,14,.25) 0%, rgba(21,16,14,.62) 75%),
+    linear-gradient(180deg, rgba(21,16,14,.45) 0%, rgba(21,16,14,.15) 40%, rgba(21,16,14,.7) 100%); }
+.grain { position: absolute; inset: -50%; z-index: -1; pointer-events: none; opacity: .22; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+#sparkle { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
+.hero .wrap { width: 100%; display: grid; padding-block: 40px 44px; }
+.hero .intro { container-type: inline-size; min-width: 0; display: grid; grid-template-rows: auto 1fr auto; gap: 28px; }
+.hero-top { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; text-align: center; }
+.hero-top .label { color: var(--moss); }
+.hero h1 { font-size: 2.6rem; font-size: min(7.5rem, 10cqi); line-height: .98; align-self: center; margin: 0; color: var(--ink); }
+.hero h1 { text-align: center; }
+.hero h1 .line { display: block; width: max-content; max-width: none; white-space: nowrap; margin-inline: auto; }
+.hero-foot { display: flex; flex-direction: column-reverse; align-items: center; gap: 26px; text-align: center; }
+.hero-copy { max-width: 580px; display: grid; gap: 24px; justify-items: center; }
+.hero-copy .lede { color: color-mix(in srgb, var(--ink) 86%, transparent); font-size: 1.05rem; }
+.hero .cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.hero .btn-line { border-color: color-mix(in srgb, var(--ink) 70%, transparent); }
+@media (max-width: 700px) {
+  .hero { min-height: 0; }
+  .hero .wrap { padding-block: 28px 36px; }
+  .hero h1 { margin-block: 40px 20px; }
+}
+
+section.band { padding-block: 104px; }
+section.band + section.band { border-top: 1px solid var(--line); }
+@media (max-width: 700px) { section.band { padding-block: 68px; } }
+.head { display: grid; gap: 14px; margin-bottom: 52px; max-width: 760px; }
+.head.center { text-align: center; margin-inline: auto; justify-items: center; }
+
+/* Work: soft masonry, captions below like place cards */
+.gallery { columns: 3 300px; column-gap: 26px; }
+.gallery figure { margin: 0 0 30px; break-inside: avoid; position: relative; }
+.gallery .ph { overflow: hidden; border-radius: 14px; background: var(--card); }
+.gallery img { width: 100%; }
+.gallery figure:hover img { transform: scale(1.025); }
+.gallery figure.archtop .ph { border-radius: 999px 999px 14px 14px; }
+.gallery figcaption { padding: 14px 4px 0; display: grid; gap: 2px; }
+.gallery figcaption b { font: 500 1.3rem/1.2 var(--display); }
+.gallery figcaption span { font-size: 14.5px; color: var(--muted); }
+.gallery .soon {
+  position: absolute; top: 14px; left: 14px; z-index: 1;
+  font: 500 11px/1 var(--body); letter-spacing: .14em; text-transform: uppercase;
+  background: var(--bg); color: var(--rust); padding: 8px 12px; border-radius: 999px;
+}
+
+/* Services */
+.services { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 48px; }
+.svc { padding-block: 30px 34px; border-top: 1px solid var(--line); display: grid; gap: 10px; align-content: start; min-width: 0; }
+.svc ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; color: var(--muted); }
+.svc a { color: var(--moss); text-underline-offset: 3px; }
+.svc.wide {
+  grid-column: 1 / -1; border-top: 0; margin-bottom: 18px;
+  background: var(--card); border-radius: 22px; padding: 38px 40px;
+  grid-template-columns: .9fr 1.1fr; column-gap: 48px; align-items: center;
+}
+.svc.wide h3 { font-size: clamp(2rem, 3.6vw, 2.6rem); }
+.svc.wide ul { grid-template-columns: 1fr 1fr; gap: 12px 28px; }
+.svc.wide li { display: flex; gap: 10px; color: var(--ink); }
+.svc.wide li::before { content: ""; flex: none; width: 6px; height: 6px; margin-top: .7em; border-radius: 50%; background: var(--moss); }
+.price { font: 500 2.6rem/1 var(--display); }
+.price small { font: 400 13px var(--body); color: var(--muted); display: block; margin-top: 8px; letter-spacing: .02em; }
+@media (max-width: 900px) { .services { grid-template-columns: 1fr 1fr; } .svc.wide { grid-template-columns: 1fr; gap: 18px; } }
+@media (max-width: 560px) { .services { grid-template-columns: 1fr; } .svc.wide { padding: 28px 24px; } .svc.wide ul { grid-template-columns: 1fr; } }
+
+/* Designer vs planner */
+.versus { display: grid; grid-template-columns: 1fr auto 1fr; gap: 32px; align-items: center; margin-top: 64px; }
+.vcol { display: grid; gap: 10px; align-content: start; padding: 32px; border-radius: 22px; border: 1px solid var(--line); }
+.vcol.you { background: var(--card); border-color: transparent; }
+.vcol p { color: var(--muted); }
+.vs { font: 500 1.7rem var(--display); color: var(--rust); }
+@media (max-width: 760px) { .versus { grid-template-columns: 1fr; gap: 14px; } .vs { justify-self: center; } }
+
+/* Stick it Good: its own cream sticker-stock panel */
+.sig {
+  --paper: #d8c8b2; --paper-ink: #1b1512; --paper-muted: #4b4037; --paper-line: #a8957c;
+  --sig-display: "Gloock", Georgia, serif; --sig-mono: "DM Mono", ui-monospace, Menlo, monospace;
+  background: var(--paper); color: var(--paper-ink); border-radius: 28px;
+  padding: clamp(28px, 5vw, 56px); display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(28px, 5vw, 56px); align-items: center;
+  box-shadow: 0 0 0 6px var(--bg), 0 0 0 7px var(--paper-line);
+}
+.sig .label { font: 500 12px/1.4 var(--sig-mono); letter-spacing: .14em; color: var(--paper-muted); }
+.sig .copy { display: grid; gap: 18px; min-width: 0; }
+.sig-logo { width: 130px; }
+.sig h2 { font: 400 clamp(1.7rem, 3.2vw, 2.3rem)/1.1 var(--sig-display); letter-spacing: 0; }
+.sig h2 em { font-style: normal; color: inherit; }
+.sig p { color: var(--paper-muted); max-width: 54ch; }
+.sig .uses { font: 400 13px/1.6 var(--sig-mono); }
+.rates { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 6px; }
+.rate { border: 1.5px dashed var(--paper-line); border-radius: 14px; padding: 16px 16px 18px; display: grid; gap: 4px; min-width: 0; }
+.rate .label { font-size: 11px; }
+.rate .amt { font: 400 2rem/1.1 var(--sig-display); color: var(--paper-ink); }
+.rate ul { list-style: none; margin: 4px 0 0; padding: 0; font-size: 14px; color: var(--paper-muted); line-height: 1.5; }
+.sig .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+.sig .btn-ink { background: var(--paper-ink); color: var(--paper); }
+.sig .btn-ink:hover { background: #3a2f28; }
+.sig .btn-outline { border-color: var(--paper-ink); color: var(--paper-ink); background: transparent; }
+.sig .btn-outline:hover { background: var(--paper-ink); color: var(--paper); }
+.sig .note { font-size: 14px; }
+.sig-photo { position: relative; justify-self: center; width: min(100%, 400px); }
+.sig-photo .pic { border-radius: 18px; aspect-ratio: 4/5; object-fit: cover; object-position: 50% 40%; width: 100%; }
+.sig-photo .char { position: absolute; width: 46%; left: -16%; bottom: -8%; filter: sepia(.35) brightness(.9) drop-shadow(0 6px 14px rgba(0,0,0,.22)); }
+.sig-photo .caption { font: 400 12.5px/1.5 var(--sig-mono); color: var(--paper-muted); margin-top: 12px; text-align: right; }
+@media (max-width: 900px) { .sig { grid-template-columns: 1fr; } .sig-photo { width: min(100%, 340px); } .sig-photo .char { left: -10%; } }
+@media (max-width: 560px) { .rates { grid-template-columns: 1fr; } .sig { border-radius: 20px; } }
+
+/* Process */
+.steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; counter-reset: s; }
+.steps li { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.steps li::before {
+  counter-increment: s; content: counter(s);
+  width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center;
+  border: 1px solid var(--line); color: var(--moss); font: 500 1.6rem/1 var(--display); margin-bottom: 8px;
+}
+.steps p { color: var(--muted); font-size: 15.5px; }
+@media (max-width: 900px) { .steps { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
+
+/* About */
+.about { display: grid; grid-template-columns: .85fr 1.15fr; gap: 72px; align-items: center; }
+.about .portrait { border-radius: 999px 999px 16px 16px; overflow: hidden; aspect-ratio: 3/4; }
+.about .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; }
+.about .copy { display: grid; gap: 18px; min-width: 0; }
+.about .copy p { color: var(--muted); max-width: 60ch; }
+.about .copy p a { color: var(--ink); text-decoration-color: var(--rust); text-underline-offset: 4px; }
+.shed { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 10px; }
+.shed img { aspect-ratio: 1; object-fit: cover; border-radius: 50%; width: 100%; }
+.caption { font: 500 1.05rem/1.4 var(--display); color: var(--muted); }
+@media (max-width: 860px) { .about { grid-template-columns: 1fr; gap: 36px; } .about .portrait { max-width: 400px; } }
+
+/* FAQ */
+.faq { display: grid; grid-template-columns: .8fr 1.2fr; gap: 64px; }
+.faq .list { border-top: 1px solid var(--line); min-width: 0; }
+details { border-bottom: 1px solid var(--line); }
+summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 24px 0; font: 500 1.45rem/1.3 var(--display); }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font: 300 1.5rem/1 var(--body); color: var(--moss); transition: transform .25s ease; }
+details[open] summary::after { transform: rotate(45deg); }
+details p { color: var(--muted); padding: 0 0 26px; max-width: 62ch; }
+@media (max-width: 860px) { .faq { grid-template-columns: 1fr; gap: 24px; } }
+
+/* Contact band */
+.contact-band { background: var(--deep); color: var(--on-deep); border-radius: 36px 36px 0 0; }
+.finale { position: relative; overflow: hidden; background: var(--deep); border-radius: 36px 36px 0 0; border-top: 1px solid var(--line); }
+@media (max-width: 860px) { .finale { border-radius: 24px 24px 0 0; } }
+#prism { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.contact-band, footer { position: relative; background: transparent !important; border-radius: 0 !important; }
+.contact-band { overflow: visible; }
+.contact-band .ball { position: absolute; z-index: 1; top: 30px; right: max(24px, 5vw); width: 76px; transform-origin: 50% -60%; animation: sway 7s ease-in-out infinite; }
+.contact-band .ball::before { content: ""; position: absolute; left: 50%; bottom: 96%; width: 1px; height: 60px; background: color-mix(in srgb, var(--on-deep) 40%, transparent); }
+@keyframes sway { 0%,100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } }
+@media (prefers-reduced-motion: reduce) { .contact-band .ball { animation: none; } }
+.contact-band .wrap { padding-top: 136px !important; }
+@media (max-width: 860px) { .contact-band .ball { width: 58px; top: 22px; } .contact-band .wrap { padding-top: 104px !important; } }
+.contact-band .wrap { position: relative; display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: start; padding-block: 96px; }
+.contact-band .label { color: color-mix(in srgb, var(--on-deep) 70%, transparent); }
+.contact-band h2 { font-size: clamp(1.9rem, 4vw, 2.9rem); margin-top: 14px; }
+.contact-band h2 em { color: inherit; }
+.email-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 30px; }
+.email { font: 500 clamp(1.4rem, 3vw, 2rem)/1.2 var(--display); color: var(--on-deep); overflow-wrap: anywhere; min-width: 0; text-underline-offset: 6px; text-decoration-thickness: 1px; }
+.copy-btn { border-color: color-mix(in srgb, var(--on-deep) 45%, transparent); color: var(--on-deep); background: transparent; padding: 11px 18px; font-size: 13px; }
+.copy-btn:hover { background: var(--on-deep); color: var(--deep); }
+.contact-band .side { display: grid; gap: 16px; align-content: start; color: color-mix(in srgb, var(--on-deep) 78%, transparent); min-width: 0; }
+.contact-band .side h2 { color: var(--on-deep); margin-top: 0; }
+.contact-band .side h2 .line { display: block; white-space: nowrap; }
+.contact-band .email-row { margin-top: 6px; }
+.contact-band .email { font-size: clamp(1.1rem, 2vw, 1.4rem); }
+
+/* Inquiry form */
+.inquiry {
+  display: grid; gap: 18px; min-width: 0;
+  background: color-mix(in srgb, var(--on-deep) 5%, transparent);
+  border: 1px solid color-mix(in srgb, var(--on-deep) 14%, transparent);
+  border-radius: 24px; padding: clamp(20px, 3.5vw, 36px);
+  backdrop-filter: blur(2px);
+}
+.inquiry .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.inquiry .field { display: grid; gap: 7px; min-width: 0; border: 0; padding: 0; margin: 0; }
+.inquiry label, .inquiry legend { font-size: 13px; letter-spacing: .04em; color: color-mix(in srgb, var(--on-deep) 75%, transparent); padding: 0; }
+.inquiry legend { margin-bottom: 9px; }
+.inquiry input:not([type="checkbox"]), .inquiry select, .inquiry textarea {
+  width: 100%; font: 400 16px/1.4 var(--body); color: var(--on-deep);
+  background: color-mix(in srgb, var(--on-deep) 6%, transparent);
+  border: 1px solid color-mix(in srgb, var(--on-deep) 20%, transparent);
+  border-radius: 12px; padding: 12px 14px; transition: border-color .2s ease, background .2s ease;
+}
+.inquiry select option { background: var(--card); color: var(--ink); }
+.inquiry textarea { resize: vertical; min-height: 120px; }
+.inquiry ::placeholder { color: color-mix(in srgb, var(--on-deep) 38%, transparent); }
+.inquiry input:focus, .inquiry select:focus, .inquiry textarea:focus { outline: none; border-color: var(--moss); background: color-mix(in srgb, var(--on-deep) 9%, transparent); }
+.inquiry .invalid { border-color: var(--rust) !important; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips label { position: relative; cursor: pointer; }
+.chips input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.chips span {
+  display: inline-block; font-size: 14px; letter-spacing: 0; color: var(--on-deep);
+  padding: 8px 14px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--on-deep) 24%, transparent);
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+.chips input:checked + span { background: var(--moss); border-color: var(--moss); color: var(--bg); }
+.chips input:focus-visible + span { outline: 2px solid var(--moss); outline-offset: 2px; }
+.inquiry .send { justify-self: start; }
+.form-error { color: var(--rust); font-size: 14px; }
+.ready { display: grid; gap: 12px; padding-top: 6px; border-top: 1px solid color-mix(in srgb, var(--on-deep) 14%, transparent); color: color-mix(in srgb, var(--on-deep) 80%, transparent); }
+.ready-title { font: 500 1.35rem/1.3 var(--display); color: var(--on-deep); padding-top: 12px; font-variation-settings: "SOFT" 100, "WONK" 1; }
+.ready-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.ready pre {
+  margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font: 400 13.5px/1.55 var(--body);
+  background: color-mix(in srgb, var(--on-deep) 5%, transparent); border-radius: 12px; padding: 14px 16px; max-height: 220px; overflow: auto;
+}
+@media (max-width: 560px) { .inquiry .row2 { grid-template-columns: 1fr; } }
+.socials { display: flex; flex-wrap: wrap; gap: 10px; }
+.socials a { text-decoration: none; font-size: 14px; padding: 9px 16px; border: 1px solid color-mix(in srgb, var(--on-deep) 30%, transparent); border-radius: 999px; color: var(--on-deep); }
+.socials a:hover { background: var(--on-deep); color: var(--deep); }
+@media (max-width: 860px) { .contact-band .wrap { grid-template-columns: 1fr; padding-block: 64px; } .contact-band { border-radius: 24px 24px 0 0; } }
+
+/* Motion: gentle, natural interactions. Everything rests visible; reduced-motion turns it all off. */
+@media (prefers-reduced-motion: no-preference) {
+  /* Hero load sequence */
+  @keyframes rise { from { transform: translateY(.35em); opacity: 0; } to { transform: none; opacity: 1; } }
+  @keyframes fadeUp { from { transform: translateY(14px); opacity: 0; } to { transform: none; opacity: 1; } }
+  @keyframes settle { from { transform: scale(1.08); } to { transform: scale(1); } }
+  .hero-bg { animation: settle 14s cubic-bezier(.2,.7,.2,1) both; }
+  .hero-top { animation: fadeUp .8s .1s ease both; }
+  .hero h1 .line { animation: rise 1s cubic-bezier(.2,.8,.2,1) both; }
+  .hero h1 .line:nth-child(1) { animation-delay: .2s; }
+  .hero h1 .line:nth-child(2) { animation-delay: .38s; }
+  .hero-copy { animation: fadeUp .9s .65s ease both; }
+
+  /* Scroll reveals: only below-the-fold elements get .reveal, so the first frame is always complete */
+  .reveal { transform: translateY(26px); opacity: .25; transition: transform .9s cubic-bezier(.2,.8,.2,1), opacity .9s ease; transition-delay: var(--d, 0s); }
+  .reveal.in { transform: none; opacity: 1; }
+
+  /* Buttons and links */
+  .btn { transition: background .2s ease, color .2s ease, border-color .2s ease, transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn:active { transform: translateY(0) scale(.97); }
+  .btn-primary:hover { box-shadow: 0 8px 24px -10px color-mix(in srgb, var(--moss) 70%, transparent); }
+  nav.links a { position: relative; transition: color .2s ease; }
+  nav.links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 1px; background: var(--moss); transform: scaleX(0); transform-origin: left; transition: transform .3s ease; }
+  nav.links a:hover::after { transform: scaleX(1); }
+  .brand .logo-mark { transition: transform .4s cubic-bezier(.2,.8,.2,1); }
+  .brand:hover .logo-mark { transform: rotate(-3deg) scale(1.03); }
+
+  /* Gallery */
+  .gallery .ph { transition: transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s ease; }
+  .gallery figure:hover .ph { transform: translateY(-4px); box-shadow: 0 18px 40px -22px rgba(0,0,0,.8); }
+  .gallery figcaption b { background: linear-gradient(var(--moss), var(--moss)) 0 100% / 0 1px no-repeat; transition: background-size .4s ease; }
+  .gallery figure:hover figcaption b { background-size: 100% 1px; }
+
+  /* Services, comparison, steps */
+  .svc.wide li::before { transition: transform .3s ease; }
+  .svc.wide li:hover::before { transform: scale(1.8); }
+  .vcol { transition: border-color .3s ease, transform .4s cubic-bezier(.2,.8,.2,1); }
+  .vcol:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--moss) 50%, transparent); }
+  .steps li::before { transition: background .35s ease, color .35s ease, border-color .35s ease, transform .35s cubic-bezier(.2,.8,.2,1); }
+  .steps li:hover::before { background: var(--moss); color: var(--bg); border-color: var(--moss); transform: rotate(-8deg) scale(1.06); }
+
+  /* Sticker panel */
+  @keyframes wiggle { 0%,100% { transform: rotate(0); } 25% { transform: rotate(-6deg); } 60% { transform: rotate(4deg); } }
+  .sig-photo .char { transform-origin: 60% 90%; }
+  .sig:hover .sig-photo .char { animation: wiggle .7s ease; }
+  .rate { transition: transform .3s cubic-bezier(.2,.8,.2,1), border-color .3s ease; }
+  .rate:hover { transform: translateY(-3px) rotate(-.6deg); border-color: var(--paper-muted); }
+
+  /* About */
+  .shed img { transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+  .shed img:hover { transform: scale(1.06) rotate(-2deg); }
+
+  /* FAQ */
+  @keyframes open { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+  details[open] p { animation: open .4s ease; }
+  summary { transition: color .2s ease; }
+  summary:hover { color: var(--moss); }
+
+  /* Form */
+  @keyframes pop { 0% { transform: scale(1); } 40% { transform: scale(1.08); } 100% { transform: scale(1); } }
+  .chips input:checked + span { animation: pop .3s ease; }
+  .socials a { transition: background .2s ease, color .2s ease, transform .25s ease; }
+  .socials a:hover { transform: translateY(-2px); }
+}
+
+footer { background: var(--deep); color: color-mix(in srgb, var(--on-deep) 70%, transparent); font-size: 13px; }
+footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; align-items: center; padding-block: 28px 40px; border-top: 1px solid color-mix(in srgb, var(--on-deep) 18%, transparent); }
+footer .logo-mark { height: 56px; background: var(--on-deep); }
+footer a { color: var(--on-deep); }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Sarah Wedding Design, back to top"><span class="logo-mark" role="img" aria-label="Sarah Wedding Design"></span></a>
+    <nav class="links" aria-label="Sections">
+      <a href="#work">Work</a><a href="#services">Services</a><a href="#stickers">Sticker machine</a><a href="#process">Process</a><a href="#about">About</a><a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-primary" href="#contact">Let's chat</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <img class="hero-bg" src="img/garlands.jpg" alt="" width="1100" height="825">
+    <div class="hero-shade" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <canvas id="sparkle" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div class="intro">
+        <div class="hero-top">
+          <p class="label">Wedding decorator and designer</p>
+        </div>
+        <h1><span class="line">Let us decorate your</span> <span class="line"><em>dream wedding</em></span></h1>
+        <div class="hero-foot">
+          <div class="hero-copy">
+            <p class="lede">I can design and make your wedding decor, from handmade garlands and the welcome sign to the table settings and favors, then help set it all up so you can enjoy your day. Every piece is custom, so it looks like you.</p>
+            <div class="cta">
+              <a class="btn btn-primary" href="#contact">Book a free 30-min call</a>
+              <a class="btn btn-line" href="#work">See the work</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="work">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">Recent work</p>
+        <h2>Arches, tables, signs and <em>every little detail</em></h2>
+      </div>
+      <div class="gallery">
+        <figure class="archtop"><div class="ph"><img src="img/garlands-dog.jpg" alt="Finished floral garlands laid out on a workshop floor, with a German shepherd resting beside them" loading="lazy" width="825" height="1100"></div><figcaption><b>Garlands, handmade by me</b><span>With my studio assistant on guard</span></figcaption></figure>
+        <figure><div class="ph"><img src="img/arch.jpg" alt="Wooden ceremony arch draped in burnt orange and plum florals, black fabric and an antler chandelier, with pumpkins at the base" loading="lazy" width="1312" height="811"></div><span class="soon">Concept · Oct 31 wedding</span><figcaption><b>Ceremony arch, coming Oct 31</b><span>A preview of the arch with my garlands. Real photos after the wedding.</span></figcaption></figure>
+        <figure><div class="ph"><img src="img/martini.jpg" alt="Brown bar sign reading espresso martini, with MARTINI repeated in aqua block letters" loading="lazy" width="900" height="738"></div><figcaption><b>Drink sign</b><span>Espresso martini, for the bar</span></figcaption></figure>
+        <figure><div class="ph"><img src="img/room-day.jpg" alt="Reception room with string lights, greenery on the pillars, a garland backdrop and tables set with place cards" loading="lazy" width="1400" height="1050"></div><figcaption><b>Reception room</b><span>String lights, greenery, backdrop and place settings</span></figcaption></figure>
+        <figure><div class="ph"><img src="img/garlands.jpg" alt="Floral garlands in rust, orange and burgundy laid out in the sun before install" loading="lazy" width="1100" height="825"></div><figcaption><b>Before install</b><span>Arch garlands in rust and plum</span></figcaption></figure>
+        <figure><div class="ph"><img src="img/room-evening.jpg" alt="The same reception room in the evening with tables set and the string lights on" loading="lazy" width="1400" height="1050"></div><figcaption><b>Lights on</b><span>The room, ready for the party</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="services">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">What a wedding decorator can do</p>
+        <h2>Basically, whatever you want, <em>we can probably make happen</em></h2>
+      </div>
+      <div class="services">
+        <div class="svc wide">
+          <div style="display:grid;gap:10px">
+            <p class="label">On the day</p>
+            <h3>Decorating and set-up</h3>
+          </div>
+          <ul><li>Handmade floral garlands for arches and tables</li><li>Room styling: lights, greenery, backdrops</li><li>Signs placed, tables styled</li><li>Set up anywhere in Colorado</li></ul>
+        </div>
+        <div class="svc">
+          <p class="label">Before the day</p>
+          <h3>Pre-wedding essentials</h3>
+          <ul><li>Couple logo design</li><li>Invitations</li></ul>
+        </div>
+        <div class="svc">
+          <p class="label">On the walls</p>
+          <h3>Signage and decor</h3>
+          <ul><li>Welcome sign</li><li>Ceremony signs</li><li>Reception signs</li><li>Cocktail and bar signs</li></ul>
+        </div>
+        <div class="svc">
+          <p class="label">On the tables</p>
+          <h3>Paper goods</h3>
+          <ul><li>Ceremony event cards</li><li>Reception cards</li><li>Place cards</li><li>Table numbers</li></ul>
+        </div>
+        <div class="svc">
+          <p class="label">To take home</p>
+          <h3>Personalized pieces</h3>
+          <ul><li>Wedding favors</li><li>Custom labels</li><li><a href="#stickers">Sticker machine rental</a></li></ul>
+        </div>
+        <div class="svc">
+          <p class="label">Not a wedding?</p>
+          <h3>Parties and events</h3>
+          <p class="muted">Showers, birthdays and other celebrations are welcome too. I love design in general.</p>
+        </div>
+        <div class="svc">
+          <p class="label">Just one piece</p>
+          <div class="price">~$250<small>Starting price for a simple single design</small></div>
+          <p class="muted">Price depends on detail. You can keep anything custom, and digital files can be included in your quote.</p>
+        </div>
+      </div>
+
+      <div class="versus">
+        <div class="vcol you">
+          <p class="label">That's me</p>
+          <h3>Wedding decorator and designer</h3>
+          <p>Handles how your wedding looks. I design and make the decor, signs and paper goods, then help set them up, so everything matches and feels like you.</p>
+        </div>
+        <span class="vs">or</span>
+        <div class="vcol">
+          <p class="label" style="color:var(--muted)">Someone else</p>
+          <h3>Wedding planner</h3>
+          <p>Focuses on logistics: booking vendors, building the timeline and managing the budget. The two work great together.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="stickers">
+    <div class="wrap">
+      <div class="sig">
+        <div class="copy">
+          <img class="sig-logo" src="img/sig-logo.png" alt="Stick it Good" width="319" height="360">
+          <p class="label">Sticker machine rental · from the same team</p>
+          <h2>Make your best moments <em>stick</em></h2>
+          <p>Rent a real coin-op sticker dispenser loaded with your custom artwork. The stickers are free for every guest. They just spin the lever and collect their prize.</p>
+          <p class="uses">Weddings · markets · pop-ups · parties · brand activations · business events</p>
+          <div class="rates">
+            <div class="rate"><p class="label">Day</p><p class="amt">$500</p><ul><li>Single-day event</li><li>300 stickers</li><li>3 designs</li></ul></div>
+            <div class="rate"><p class="label">Weekend</p><p class="amt">$750</p><ul><li>Two-day event</li><li>500 stickers</li><li>Up to 6 designs</li></ul></div>
+            <div class="rate"><p class="label">Week</p><p class="amt">$1000</p><ul><li>Five-day event</li><li>750 stickers</li><li>Up to 9 designs</li></ul></div>
+          </div>
+          <p class="note">Includes 2" × 2" die-cut stickers, delivery, set-up in under 5 minutes, and pick-up. No artwork yet? I'll design your stickers too.</p>
+          <div class="cta">
+            <a class="btn btn-ink" href="https://www.stickitgood.com/#contact" target="_blank" rel="noopener">Check availability</a>
+            <a class="btn btn-outline" href="https://www.stickitgood.com/" target="_blank" rel="noopener">Visit stickitgood.com</a>
+          </div>
+        </div>
+        <div class="sig-photo">
+          <img class="pic" src="img/sig-unbridal.jpg" alt="Sarah and her husband in Stick it Good shirts beside the sticker machine at a bridal show" loading="lazy" width="667" height="1000">
+          <img class="char" src="img/sig-character.png" alt="" loading="lazy">
+          <p class="caption">The machine at the Unbridal show in Denver</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="process">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">How it works</p>
+        <h2>From first call <em>to the big day</em></h2>
+      </div>
+      <ol class="steps">
+        <li><h3>Free 30-minute call</h3><p>Tell me what you're dreaming of. If you're in Denver, we can meet for coffee instead.</p></li>
+        <li><h3>Consultation</h3><p>We get to know you, your vision and your budget. Then you get a statement of work.</p></li>
+        <li><h3>Contract and design</h3><p>Once the contract is signed, I start designing. You approve every piece at every step.</p></li>
+        <li><h3>Decorating day</h3><p>Everything is ready by the day of your event. In Colorado, I'll help set up the decor, so you have one less thing to worry about.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band" id="about">
+    <div class="wrap about">
+      <div class="portrait"><img src="img/sarah.jpg" alt="Sarah in a sequin dress holding a bottle of champagne and a Bride straw" loading="lazy" width="900" height="1350"></div>
+      <div class="copy">
+        <p class="label">About me</p>
+        <h2>Hi, I'm <em>Sarah</em></h2>
+        <p>I've been a <a href="https://www.linkedin.com/in/saleach/" target="_blank" rel="noopener">user experience designer</a> for the <a href="https://sarahleach.design" target="_blank" rel="noopener">past 10 years</a>, and I'm still a senior product designer at a cloud software company. I got married recently, loved designing and decorating my own wedding, and wanted to do it for others.</p>
+        <p>I'm very sentimental, and I love illustrating and bringing ideas to life. I've lived in south Denver for 8 years, so if your event is in Colorado, I can help you set it up too.</p>
+        <p>Over the pandemic, my husband, his dad and I built a <a href="https://readymag.website/sarahleach/sheshed/" target="_blank" rel="noopener">she shed and greenhouse</a> in our backyard out of old windows. So no idea is too big.</p>
+        <div class="shed">
+          <img src="img/shed.jpg" alt="Greenhouse built from salvaged windows in a backyard" loading="lazy">
+          <img src="img/shed-inside.jpg" alt="Inside the greenhouse with hanging plants, lanterns and colored lights" loading="lazy">
+          <img src="img/shed-night.jpg" alt="The greenhouse at night lit with colored string lights" loading="lazy">
+        </div>
+        <p class="caption">The she shed, built from salvaged windows.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="faq">
+    <div class="wrap faq">
+      <div class="head" style="align-content:start">
+        <h2>FAQs</h2>
+      </div>
+      <div class="list">
+        <details open><summary>Can I just get one design done?</summary><p>Yes, of course! The price depends on the level of detail and what you want. Simple pieces start around $250.</p></details>
+        <details><summary>Do you set up the decor on the day?</summary><p>Yes! If your event is in Colorado, I can help set everything up so it's ready before your guests arrive. We'll talk through what you need on our first call and I'll include it in the quote.</p></details>
+        <details><summary>Can you design something that isn't wedding related?</summary><p>That's totally okay! I love design in general and would be happy to help you out.</p></details>
+        <details><summary>Why don't you have many reviews yet?</summary><p>2025 is the year I officially started in the wedding industry. I've been a user experience designer for 10 years and love designing events. If you book me, maybe you could write me a review ;)</p></details>
+        <details><summary>Are you real?</summary><p>Yes! I live in south Denver and have been here for 8 years. If your event is in Colorado, I can even help you set it up. If you're in Denver and want to meet for coffee for our first chat, we can do that too.</p></details>
+        <details><summary>Can I keep the things you make?</summary><p>If it's custom, of course! If you want the digital files, I can provide those too. When we talk about what you want, I'll include everything in the quote.</p></details>
+        <details><summary>What if I don't want everything in the quote?</summary><p>Let me know and I'll adjust the quote to fit.</p></details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="finale">
+  <canvas id="prism" aria-hidden="true"></canvas>
+  <section class="contact-band" id="contact">
+    <div class="ball" aria-hidden="true"><img src="img/mirrorball.png" alt="" width="300" height="297"></div>
+    <div class="wrap">
+      <div class="side">
+        <p class="label">Have an idea you want brought to life?</p>
+        <h2><span class="line">Let's <em>partner</em></span> <span class="line">on it</span></h2>
+        <p>Tell me a little about your day and I'll get back to you to set up your free 30-minute call. I usually reply during business hours.</p>
+        <div class="email-row">
+          <a class="email" id="email" href="mailto:sarahweddingdesign@gmail.com?subject=Website%20inquiry">sarahweddingdesign@gmail.com</a>
+          <button class="btn copy-btn" id="copy" type="button">Copy email</button>
+        </div>
+        <div class="socials">
+          <a href="https://www.instagram.com/sarah.wedding.design" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@sarah.wedding.des" target="_blank" rel="noopener">TikTok</a>
+          <a href="https://www.theknot.com/marketplace/sarah-wedding-design-denver-co-2094127" target="_blank" rel="noopener">The Knot</a>
+          <a href="https://www.stickitgood.com/" target="_blank" rel="noopener">Stick it Good</a>
+        </div>
+      </div>
+
+      <form class="inquiry" id="inquiry" novalidate>
+        <div class="row2">
+          <div class="field"><label for="f-name">Your name(s)</label><input id="f-name" name="name" autocomplete="name" required placeholder="Alex and Jordan"></div>
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required placeholder="you@email.com"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-date">Event date</label><input id="f-date" name="date" type="date"></div>
+          <div class="field"><label for="f-venue">Venue or city</label><input id="f-venue" name="venue" placeholder="Evergreen, CO"></div>
+        </div>
+        <fieldset class="field">
+          <legend>What can I help with?</legend>
+          <div class="chips">
+            <label><input type="checkbox" name="help" value="Decorating and set-up"><span>Decorating and set-up</span></label>
+            <label><input type="checkbox" name="help" value="Garlands and florals"><span>Garlands and florals</span></label>
+            <label><input type="checkbox" name="help" value="Signage"><span>Signage</span></label>
+            <label><input type="checkbox" name="help" value="Invitations and paper goods"><span>Invitations and paper</span></label>
+            <label><input type="checkbox" name="help" value="Favors"><span>Favors</span></label>
+            <label><input type="checkbox" name="help" value="Sticker machine"><span>Sticker machine</span></label>
+            <label><input type="checkbox" name="help" value="Something else"><span>Something else</span></label>
+          </div>
+        </fieldset>
+        <div class="field"><label for="f-msg">Tell me about your vision</label><textarea id="f-msg" name="message" rows="5" required placeholder="Colors, vibe, guest count, anything you've been saving on Pinterest…"></textarea></div>
+        <p class="form-error" id="f-error" hidden>Please add your name, a valid email and a few words about your vision.</p>
+        <button class="btn btn-primary send" type="submit">Send inquiry</button>
+
+        <div class="ready" id="f-ready" hidden>
+          <p class="ready-title">Your message is ready to send</p>
+          <p>Open it in your email app, or copy it and send it to sarahweddingdesign@gmail.com.</p>
+          <div class="ready-actions">
+            <a class="btn btn-primary" id="f-mailto" href="#">Open in email app</a>
+            <button class="btn copy-btn" id="f-copy" type="button">Copy message</button>
+            <button class="btn copy-btn" id="f-edit" type="button">Edit</button>
+          </div>
+          <pre id="f-preview"></pre>
+        </div>
+        <div class="ready" id="f-sent" hidden>
+          <p class="ready-title">Thank you! Your inquiry is on its way.</p>
+          <p>I'll get back to you during business hours to set up your free call.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+<footer>
+  <div class="wrap">
+    <a href="#top" aria-label="Back to top"><span class="logo-mark" role="img" aria-label="Sarah Wedding Design"></span></a>
+    <span>© 2026 Sarah Wedding Design · Denver, CO · Sticker rentals at <a href="https://www.stickitgood.com/" target="_blank" rel="noopener">Stick it Good</a></span>
+  </div>
+</footer>
+</div>
+
+<script>
+document.getElementById('copy').addEventListener('click', function () {
+  var btn = this, text = 'sarahweddingdesign@gmail.com';
+  function done(msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = 'Copy email'; }, 1800); }
+  function fallback() {
+    var r = document.createRange(); r.selectNodeContents(document.getElementById('email'));
+    var s = getSelection(); s.removeAllRanges(); s.addRange(r); done('Selected, press ⌘C');
+  }
+  try { navigator.clipboard.writeText(text).then(function () { done('Copied'); }, fallback); } catch (e) { fallback(); }
+});
+
+// Fit the hero headline: scale it so its longer line fills nearly the full width (max 7.5rem)
+(function () {
+  var h1 = document.querySelector('.hero h1'), box = document.querySelector('.hero .intro');
+  var lines = h1.querySelectorAll('.line');
+  function fit() {
+    h1.style.fontSize = '';
+    var size = parseFloat(getComputedStyle(h1).fontSize);
+    var widest = Math.max.apply(null, Array.prototype.map.call(lines, function (l) { return l.scrollWidth; }));
+    var avail = box.clientWidth * .97;
+    if (!widest || !avail) return;
+    var max = parseFloat(getComputedStyle(document.documentElement).fontSize) * 7.5;
+    h1.style.fontSize = Math.min(max, size * avail / widest) + 'px';
+  }
+  (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(fit);
+  addEventListener('resize', fit);
+})();
+
+// Scroll reveals: elements already on screen at load are left alone; the rest glide up as they arrive
+(function () {
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var groups = [
+    ['.band .head, .sig, .about .portrait, .about .copy, .faq .list, .contact-band .side, .inquiry, .versus', 0],
+    ['.gallery figure', .08], ['.services .svc', .06], ['.steps li', .1]
+  ];
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
+  groups.forEach(function (g) {
+    Array.prototype.forEach.call(document.querySelectorAll(g[0]), function (el, i) {
+      if (el.getBoundingClientRect().top < innerHeight) return;
+      if (g[1]) el.style.setProperty('--d', ((i % 3) * g[1]) + 's');
+      el.classList.add('reveal'); io.observe(el);
+    });
+  });
+})();
+
+// Inquiry form.
+// Inquiries go through FormSubmit, which sends the first submission as an activation email.
+// If delivery fails, the form falls back to a ready-to-send email.
+var FORM_ENDPOINT = "https://formsubmit.co/ajax/sarahweddingdesign@gmail.com";
+(function () {
+  var TO = 'sarahweddingdesign@gmail.com';
+  var form = document.getElementById('inquiry'), err = document.getElementById('f-error');
+  var ready = document.getElementById('f-ready'), sent = document.getElementById('f-sent');
+  var preview = document.getElementById('f-preview'), mailto = document.getElementById('f-mailto');
+  var sendBtn = form.querySelector('.send'), message = '';
+  var required = ['f-name', 'f-email', 'f-msg'].map(function (id) { return document.getElementById(id); });
+
+  function val(name) { return (form.elements[name].value || '').trim(); }
+  function fmtDate(v) {
+    if (!v) return '';
+    var d = new Date(v + 'T12:00:00');
+    return isNaN(d) ? v : d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+  }
+  function collect() {
+    var help = Array.prototype.filter.call(form.querySelectorAll('input[name="help"]'), function (c) { return c.checked; })
+      .map(function (c) { return c.value; });
+    return { name: val('name'), email: val('email'), date: fmtDate(val('date')), venue: val('venue'), help: help, message: val('message') };
+  }
+  function compose(d) {
+    var lines = ['Hi Sarah!', '', d.message, '', '---',
+      'Name: ' + d.name, 'Email: ' + d.email];
+    if (d.date) lines.push('Event date: ' + d.date);
+    if (d.venue) lines.push('Venue / city: ' + d.venue);
+    if (d.help.length) lines.push('Interested in: ' + d.help.join(', '));
+    return lines.join('\n');
+  }
+  function check() {
+    var ok = true;
+    required.forEach(function (el) {
+      var bad = !el.value.trim() || (el.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()));
+      el.classList.toggle('invalid', bad);
+      if (bad) ok = false;
+    });
+    err.hidden = ok;
+    return ok;
+  }
+  required.forEach(function (el) { el.addEventListener('input', function () { if (!err.hidden) check(); }); });
+
+  function showReady(d) {
+    message = compose(d);
+    preview.textContent = message;
+    var subject = 'Wedding inquiry from ' + d.name + (d.date ? ' (' + d.date + ')' : '');
+    mailto.href = 'mailto:' + TO + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(message);
+    sendBtn.hidden = true; ready.hidden = false;
+    ready.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest' });
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!check()) { (required.find(function (el) { return el.classList.contains('invalid'); }) || form).focus(); return; }
+    var d = collect();
+    if (!FORM_ENDPOINT) { showReady(d); return; }
+    sendBtn.disabled = true; sendBtn.textContent = 'Sending…';
+    fetch(FORM_ENDPOINT, {
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ name: d.name, email: d.email, event_date: d.date, venue: d.venue, interested_in: d.help.join(', '), message: d.message, _subject: 'Wedding inquiry from ' + d.name })
+    }).then(function (r) {
+      if (!r.ok) throw new Error(r.status);
+      Array.prototype.forEach.call(form.querySelectorAll('.row2, .field, .send, .form-error'), function (el) { el.hidden = true; });
+      sent.hidden = false;
+    }).catch(function () {
+      // Delivery failed: fall back to the ready-to-send email so nothing is lost
+      sendBtn.disabled = false; sendBtn.textContent = 'Send inquiry';
+      showReady(d);
+    });
+  });
+
+  document.getElementById('f-edit').addEventListener('click', function () { ready.hidden = true; sendBtn.hidden = false; document.getElementById('f-msg').focus(); });
+  document.getElementById('f-copy').addEventListener('click', function () {
+    var btn = this, full = 'To: ' + TO + '\n\n' + message;
+    function done(m) { btn.textContent = m; setTimeout(function () { btn.textContent = 'Copy message'; }, 1800); }
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(preview);
+      var s = getSelection(); s.removeAllRanges(); s.addRange(r); done('Selected, press ⌘C');
+    }
+    try { navigator.clipboard.writeText(full).then(function () { done('Copied'); }, fallback); } catch (e) { fallback(); }
+  });
+})();
+
+// Mirrorball light specks drifting across the hero
+(function () {
+  var c = document.getElementById('sparkle'), ctx = c.getContext('2d');
+  var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var dots = [], w, h, dpr = Math.min(devicePixelRatio || 1, 2);
+  function size() {
+    w = c.clientWidth; h = c.clientHeight; c.width = w * dpr; c.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    dots = Array.from({ length: Math.round(w * h / 14000) }, function () {
+      return { x: Math.random() * w, y: Math.random() * h, s: 2 + Math.random() * 4, a: Math.random() * Math.PI * 2, v: .1 + Math.random() * .3, gold: Math.random() < .4 };
+    });
+  }
+  function draw(t) {
+    ctx.clearRect(0, 0, w, h);
+    for (var i = 0; i < dots.length; i++) {
+      var d = dots[i];
+      if (!still) { d.x += d.v; if (d.x > w + 10) d.x = -10; }
+      ctx.globalAlpha = (still ? .5 : .3 + .35 * Math.sin(t / 900 + d.a)) * .5;
+      ctx.fillStyle = d.gold ? '#d2b06a' : '#eee3d5';
+      ctx.fillRect(d.x, d.y, d.s, d.s * .7);
+    }
+    if (!still) requestAnimationFrame(draw);
+  }
+  size(); addEventListener('resize', size); requestAnimationFrame(draw);
+})();
+
+// Prism suncatcher flecks: soft rainbow spots that drift and fade, like light through a crystal globe
+(function () {
+  var c = document.getElementById('prism'), ctx = c.getContext('2d');
+  var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var spots = [], w, h, dpr = Math.min(devicePixelRatio || 1, 2), running = false;
+  var bands = [[330, 90, 72], [45, 95, 65], [110, 70, 60], [200, 85, 66]]; // pink, gold, green, blue
+  function make(born) {
+    return {
+      x: Math.random() * w, y: Math.random() * h,
+      r: 12 + Math.random() * 28, rot: Math.random() * Math.PI, squash: .35 + Math.random() * .3,
+      vx: (Math.random() - .5) * .07, vy: (Math.random() - .5) * .035,
+      life: 9000 + Math.random() * 11000, born: born - Math.random() * 9000, start: Math.floor(Math.random() * 4)
+    };
+  }
+  function size() {
+    w = c.clientWidth; h = c.clientHeight; c.width = w * dpr; c.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var now = performance.now();
+    spots = Array.from({ length: Math.max(5, Math.round(w * h / 48000)) }, function () { return make(now); });
+  }
+  function spot(s, a) {
+    ctx.save(); ctx.translate(s.x, s.y); ctx.rotate(s.rot); ctx.scale(1, s.squash);
+    for (var i = 0; i < 3; i++) {
+      var b = bands[(s.start + i) % 4], off = (i - 1) * s.r * .55;
+      var g = ctx.createRadialGradient(off, 0, 0, off, 0, s.r);
+      g.addColorStop(0, 'hsla(' + b[0] + ',' + b[1] + '%,' + b[2] + '%,' + (a * .22) + ')');
+      g.addColorStop(1, 'hsla(' + b[0] + ',' + b[1] + '%,' + b[2] + '%,0)');
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(off, 0, s.r, 0, Math.PI * 2); ctx.fill();
+    }
+    ctx.restore();
+  }
+  function draw(t) {
+    ctx.clearRect(0, 0, w, h);
+    ctx.globalCompositeOperation = 'lighter';
+    for (var i = 0; i < spots.length; i++) {
+      var s = spots[i], p = (t - s.born) / s.life;
+      if (p >= 1) { spots[i] = s = make(t); s.born = t; p = 0; }
+      var a = still ? .6 : Math.max(0, Math.sin(Math.max(0, p) * Math.PI));
+      if (!still) { s.x += s.vx; s.y += s.vy; s.rot += .0006; }
+      spot(s, a);
+    }
+    ctx.globalCompositeOperation = 'source-over';
+    if (!still && running) requestAnimationFrame(draw);
+  }
+  size(); addEventListener('resize', size);
+  if (still) { draw(performance.now()); return; }
+  // Only animate while the footer is on screen
+  new IntersectionObserver(function (e) {
+    var vis = e[0].isIntersecting;
+    if (vis && !running) { running = true; requestAnimationFrame(draw); } else if (!vis) running = false;
+  }).observe(c);
+  running = true; requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>
