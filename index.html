@@ -281,6 +281,15 @@ details p { color: var(--muted); padding: 0 0 26px; max-width: 62ch; }
 .email { font: 500 clamp(1.4rem, 3vw, 2rem)/1.2 var(--display); color: var(--on-deep); overflow-wrap: anywhere; min-width: 0; text-underline-offset: 6px; text-decoration-thickness: 1px; }
 .copy-btn { border-color: color-mix(in srgb, var(--on-deep) 45%, transparent); color: var(--on-deep); background: transparent; padding: 11px 18px; font-size: 13px; }
 .copy-btn:hover { background: var(--on-deep); color: var(--deep); }
+/* copy icon next to the email: outlined square in the cream, fills on hover, shows a check and a small "Copied" label */
+.copy-wrap { position: relative; display: inline-flex; }
+.email-copy { display: inline-grid; place-items: center; width: 40px; height: 40px; padding: 0; border-radius: 10px; border: 1px solid color-mix(in srgb, var(--on-deep) 45%, transparent); background: transparent; color: var(--on-deep); cursor: pointer; transition: background-color .2s ease, color .2s ease, border-color .2s ease; }
+.email-copy:hover, .email-copy:focus-visible { background: var(--on-deep); color: var(--deep); border-color: var(--on-deep); }
+.email-copy svg { width: 18px; height: 18px; grid-area: 1 / 1; transition: opacity .15s ease; }
+.email-copy .i-done, .email-copy.copied .i-copy { opacity: 0; }
+.email-copy.copied .i-done { opacity: 1; }
+.copy-tip { position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); white-space: nowrap; background: var(--on-deep); color: var(--deep); font: 500 12px/1 var(--body); padding: 6px 9px; border-radius: 6px; pointer-events: none; }
+.copy-tip:empty { display: none; }
 .contact-band .side { display: grid; gap: 16px; align-content: start; color: color-mix(in srgb, var(--on-deep) 78%, transparent); min-width: 0; }
 .contact-band .side h2 { color: var(--on-deep); margin-top: 0; }
 .contact-band .side h2 .line { display: block; white-space: nowrap; }
@@ -615,7 +624,10 @@ footer a { color: var(--on-deep); }
         <p>Tell me a little about your day and I'll get back to you to set up your free 30-minute call. I usually reply during business hours.</p>
         <div class="email-row">
           <a class="email" id="email" href="mailto:sarahweddingdesign@gmail.com?subject=Website%20inquiry">sarahweddingdesign@gmail.com</a>
-          <button class="btn copy-btn" id="copy" type="button">Copy email</button>
+          <span class="copy-wrap"><button class="email-copy" id="copy" type="button" aria-label="Copy email address" title="Copy email address">
+            <svg class="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <svg class="i-done" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          </button><span class="copy-tip" id="copy-tip" role="status"></span></span>
         </div>
         <div class="socials">
           <a href="https://www.instagram.com/sarah.wedding.design" target="_blank" rel="noopener">Instagram</a>
@@ -678,13 +690,16 @@ footer a { color: var(--on-deep); }
 
 <script>
 document.getElementById('copy').addEventListener('click', function () {
-  var btn = this, text = 'sarahweddingdesign@gmail.com';
-  function done(msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = 'Copy email'; }, 1800); }
+  var btn = this, tip = document.getElementById('copy-tip'), text = 'sarahweddingdesign@gmail.com';
+  function done(msg, ok) {
+    btn.classList.toggle('copied', ok); tip.textContent = msg;
+    setTimeout(function () { btn.classList.remove('copied'); tip.textContent = ''; }, ok ? 1800 : 3200);
+  }
   function fallback() {
     var r = document.createRange(); r.selectNodeContents(document.getElementById('email'));
-    var s = getSelection(); s.removeAllRanges(); s.addRange(r); done('Selected, press ⌘C');
+    var s = getSelection(); s.removeAllRanges(); s.addRange(r); done('Selected, press ⌘C', false);
   }
-  try { navigator.clipboard.writeText(text).then(function () { done('Copied'); }, fallback); } catch (e) { fallback(); }
+  try { navigator.clipboard.writeText(text).then(function () { done('Copied', true); }, fallback); } catch (e) { fallback(); }
 });
 
 // Fit the hero headline: scale it so its longer line fills nearly the full width (max 7.5rem)
