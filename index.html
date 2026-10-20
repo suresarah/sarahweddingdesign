@@ -221,8 +221,8 @@ section.band + section.band { border-top: 1px solid var(--line); }
 .sig-photo { position: relative; justify-self: center; width: min(100%, 400px); }
 .sig-photo .pic { border-radius: 18px; aspect-ratio: 4/5; object-fit: cover; object-position: 50% 40%; width: 100%; }
 .sig-photo .char { position: absolute; width: 46%; left: -16%; bottom: -8%; filter: sepia(.35) brightness(.9) drop-shadow(0 6px 14px rgba(0,0,0,.22)); }
-.sig-photo .caption { font: 400 12.5px/1.5 var(--sig-mono); color: var(--paper-muted); margin-top: 12px; text-align: right; }
-@media (max-width: 900px) { .sig { grid-template-columns: 1fr; } .sig-photo { width: min(100%, 340px); } .sig-photo .char { left: -10%; } }
+.sig-photo .caption { font: 400 12.5px/1.5 var(--sig-mono); color: var(--paper-muted); margin-top: 12px; text-align: right; padding-left: 34%; } /* keeps the caption clear of the character sticker */
+@media (max-width: 900px) { .sig { grid-template-columns: 1fr; } .sig-photo { width: min(100%, 340px); } .sig-photo .char { left: -10%; bottom: -4%; } .sig-photo .caption { padding-left: 40%; } }
 @media (max-width: 560px) { .rates { grid-template-columns: 1fr; } .sig { border-radius: 20px; } }
 
 /* Process */
